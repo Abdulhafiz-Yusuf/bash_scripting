@@ -14,9 +14,6 @@
 # 	1. Filter users with /bin/bash as their shell from /etc/passwd
 REPORT_FILE="./userAuditReport.txt"
 
-if [ ! -e "$REPORT_FILE" ]; then
-    touch $REPORT_FILE
-fi
 echo -e "Username\t|\tShell\t|\tSudo_status\t|\tActive_status" > $REPORT_FILE
 #username:password:UID:GID:GECOS:home_directory:shell
 while IFS=: read -r username _ uid gid _ _ shell; do

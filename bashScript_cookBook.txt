@@ -1,0 +1,59 @@
+1. grep
+    To be use when I want to search for a particular word in a text file or in text output of a command. 
+    EXAMPLE: 
+    grep -Fxq "$shell" /etc/shells or
+    grep -Ei 'ERROR|CRITICAL|FAILED' "$1" | 
+    grep -qw "sudo"
+    where   -F: Interpret PATTERNS as fixed strings, not regular expressions
+            -x: Select  only  those  matches  that exactly match the whole line
+            -q: Quiet; do not write anything to standard output.
+            -i: Case insensitivity
+            -qw: Look for exact match of "sudo" group
+2.  getopts: 
+    To be use together with $OPTARG obtain options from user inputted argument.
+
+3.  id:
+    To be use to display id of current user or use -u for id a specific user.
+    EXAMPLE: 
+    id -un: display name of user instead of id
+    id -nG: display name of group instead of id
+    
+4.  if [ $? -ne 0 ]
+    To check if user enter any argument and $# for total number of arguments given by user.
+
+5.  if [ ! -r "$1" ]
+    To check if file exists and is readable
+
+6.  awk '{print $1, $2}' | sort | uniq -c | 
+    Use to break a line into column and print a field.
+
+    # tar -czf "$archive_name" "$file_to_archive"
+    Use to archive a file: 
+    where   -c: Create a new archive file.
+            -z: Compress the archive with gzip (.gz).
+            -f: File name to save the archive as (must come last before the name).
+
+7.  find "$Dir_to_search" -name "file_name" -type f -mtime +7 -exec rm -f {} \;
+    # Part	                Meaning
+    # find	                The command used to search for files in a directory tree.
+    # "$BACKUP_DIR"	        The starting directory to search (e.g., ./backups).
+    # -name "backup_*.tar.gz"	Match files with names like backup_2025-06-15.tar.gz.
+    # -type f	                Only match regular files, not directories.
+    # -mtime +7	            Match files modified more than 7 days ago.
+    # -exec rm -f {} \;	    For each matching file, run rm -f {} to force delete it. 
+    # {}                      is a placeholder for each file found. 
+    # \;                      ends the -exec command.
+
+8.  while IFS=: read -r username _ uid gid _ home shell; do ....   done < /etc/passwd:
+    Use to read a text file with regular/repeating rows fields line by line 
+
+9.  lastlog -u:
+    Example: 
+    last_login_epoch=$(date -d "$last_login" +%s 2>/dev/null)
+    where:
+    +%s: convert the date to epoch (Unix timestamp (number of seconds since January 1, 1970))
+    As the name implies, its shows the last log in time of the specified user.
+
+10. if [[ "$string" =~ pattern ]]; then
+    # Do something if it matches
+fi

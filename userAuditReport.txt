@@ -1,0 +1,1 @@
+Username	|	Shell	|	Sudo_status	|	Active_status

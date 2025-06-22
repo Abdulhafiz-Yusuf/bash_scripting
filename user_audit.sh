@@ -12,7 +12,7 @@
 # Step-by-step Features:
 
 # 	1. Filter users with /bin/bash as their shell from /etc/passwd
-REPORT_FILE="./userAuditReport.txt"
+REPORT_FILE="./user_audit_reprot.txt"
 
 echo -e "Username\t|\tShell\t|\tSudo_status\t|\tActive_status" > $REPORT_FILE
 #username:password:UID:GID:GECOS:home_directory:shell

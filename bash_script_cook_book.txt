@@ -58,9 +58,16 @@
     # Do something if it matches
 fi
 
+
+# systemctl is-active "$service" 2>/dev/null
+Check the status of service and return either active|Inactive|failed.
+
 ?🎨 ANSI Color Codes (for reference):
 # Code	Color
 # \e[31m	🔴 Red
 # \e[32m	🟢 Green
 # \e[33m	🟡 Yellow
 # \e[0m	🔚 Reset (default color)
+
+
+# local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
